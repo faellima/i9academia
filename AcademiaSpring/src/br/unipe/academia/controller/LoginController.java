@@ -53,7 +53,7 @@ private VaucherService vaucherService;
 
   @RequestMapping("efetuaLogin") 
   public String logar(Usuario usuario, HttpSession session) {
-	  Usuario usuarioLogado = usuarioService.efetuarLogin(usuario.getLogin(), usuario.getSenha());
+	  Usuario usuarioLogado = usuarioService.efetuarLogin(usuario.getLogin(), Util.criptografar(usuario.getSenha()));
 	  session.setAttribute("loginPrincipalError", null);
 	  if(usuarioLogado != null){
 		 // session.setAttribute("usuarioLogado", usuarioLogado); 
@@ -164,7 +164,6 @@ private VaucherService vaucherService;
 		List<Vaucher> vauchers = vaucherService.listarVaucher();
 		int cont = 0;
 		for (Vaucher vaucher : vauchers) {
-			System.out.println("####"+vaucher.getSequenciador());
 			if(vaucher.getSequenciador().equals(administrador.getVaucher())){
 				cont +=1;
 			}
@@ -175,7 +174,7 @@ private VaucherService vaucherService;
 			administrador.setDataTemporaria(null);
 			Usuario usuario = new Usuario();
 			usuario.setLogin(administrador.getUsuario().getLogin());
-			usuario.setSenha(administrador.getUsuario().getSenha());
+			usuario.setSenha(Util.criptografar(administrador.getUsuario().getSenha()));
 			
 			usuarioService.salvarUsuarioAdministrador(usuario, administrador);
 			session.setAttribute("novoAdmin", "Novo Administrador Cadastrado Com Sucesso");

@@ -55,5 +55,28 @@ public class Util {
 	        return null;
 	    }
 	}
+	
+	public static String criptografar(String texto) {  
+		String alfabeto = " <abcdefghijklmnopqrstuvwxyzçéáíúóãõABCDEFGHIJKLMNOPQRSTUVWXYZÇÁÉÓÍÚÃÕ1234567890.;:?,º]}§[{ª!@#$%&*()_+-=\\/|\'\">";   
+		  
+		       char[] t = texto.toCharArray();  
+		  
+		        String palavra="";  
+		  
+		        for (int i = 0; i < t.length; i++) {  
+		  
+		            int posicao = alfabeto.indexOf(t[i]) + 5;  
+		  
+		            if (alfabeto.length() <= posicao) {  
+		  
+		               posicao = posicao - alfabeto.length();  
+		 
+		            }
+		  
+		            palavra = palavra + alfabeto.charAt(posicao);  
+		  
+		        }  
+		        return palavra;  
+		    }  
 }
 

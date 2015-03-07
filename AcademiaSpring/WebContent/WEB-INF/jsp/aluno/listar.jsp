@@ -39,7 +39,7 @@
 				<th>Celular</th>
 				<th>Email</th>
 				<th>Acao de Edicao</th>
-				<th>Acao de Matricula</th>
+			<!-- 	<th>Acao de Matricula</th> -->
 				<th>Acao de Exclusao</th>
 			</tr>
 			<c:forEach var="aluno" items="${alunos}">
@@ -55,11 +55,11 @@
 						<input type="submit" value="Editar"/>
 					</form:form></td>
 					
-					<c:url var="url_3" value="/aluno/matricular/${aluno.id}" />
+					<c:url var="url_3" value="/aluno" />
 					
-				    <td><form:form action="${url_3}" method="POST">
+				   <!--  <td><form:form action="${url_3}" method="GET">
 						<input type="submit" value="Matricular"/>
-					</form:form></td>
+					</form:form></td> -->
 					
 					<td><form:form action="${url_2}" method="DELETE">
 						<input type="submit" value="Excluir"/>

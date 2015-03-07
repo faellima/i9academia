@@ -119,7 +119,7 @@ public class AlunoController {
 		aluno.setDataTemporaria(null);
 		Usuario usuario = new Usuario();
 		usuario.setLogin(aluno.getUsuario().getLogin());
-		usuario.setSenha(aluno.getUsuario().getSenha());
+		usuario.setSenha(Util.criptografar(aluno.getUsuario().getSenha()));
 	
 		usuarioService.salvarUsuarioAluno(usuario, aluno);
 	
@@ -305,7 +305,7 @@ public class AlunoController {
 		}
 	
 		usuario.setLogin(aluno.getUsuario().getLogin());
-		usuario.setSenha(aluno.getUsuario().getSenha());
+		usuario.setSenha(Util.criptografar(aluno.getUsuario().getSenha()));
 		usuarioService.atualizarUsuario(usuario);
 		aluno.setUsuario(usuario);
 		alunoService.atualizarAluno(aluno);
