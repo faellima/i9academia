@@ -7,8 +7,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lista de alunos</title>
+		<title>Lista de alunos</title>
+		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+       <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/morris/morris.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+       <link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -16,24 +25,34 @@
 
 	<c:url var="url_filtro" value="/aluno/filtro" />
 
-	<form:form action="${url_filtro}" method='get'
-		modelAttribute="alunomodalidade">
-	
-		Aluno:<form:input path="aluno.nome" />
 
-		Modalidade:<form:select path="modalidade.id">
-			<form:option value="">TODOS</form:option>
-			<form:options items="${modalidades}" />
-		</form:select>
+<div class="row">
+	<div class="col-xs-12">
+	    <div class="box">
+	        <div class="box-header">
+	            <h3 class="box-title">Lista de Alunos</h3>
+	            <div class="box-tools pull-right" align="right">
+	                <div class="input-group">
+	                    <div class="pull-right">
+	                    	<form:form action="${url_filtro}" method='get'
+							modelAttribute="alunomodalidade">
+						
+							Aluno:<form:input path="aluno.nome" />
 
-		<input type="submit" value="pesquisar" />
-	</form:form>
+							Modalidade:<form:select path="modalidade.id">
+								<form:option value="">TODOS</form:option>
+								<form:options items="${modalidades}" />
+							</form:select>
 
-	<br />
-
-	<c:if test="${not empty alunos}">
-		<table align="center" width="81%" cellspacing="0" cellpadding="0"
-			border="1">
+							<input type="submit" value="pesquisar" />
+						</form:form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	<div class="box-body table-responsive no-padding">
+		<c:if test="${not empty alunos}">
+		<table class="table table-hover">
 			<tr>
 				<th>Nome</th>
 				<th>Cpf</th>
@@ -53,7 +72,7 @@
 					<td>${aluno.email}</td>
 					<td><c:url var="url_2" value="/aluno/${aluno.id}" /> <form:form
 							action="${url_2}" method="POST">
-							<input type="submit" value="Editar" />
+							<input type="submit" value="Editar"></input>
 						</form:form></td>
 
 					<c:url var="url_3" value="/aluno" />
@@ -68,22 +87,31 @@
 				</tr>
 			</c:forEach>
 		</table>
+		</div>
+		</div>
+		</div>
+		</div>
 	</c:if>
 	<br />
 
-	<form:form action="${url_1}" method="POST">
-		<input type="submit" value="Novo" />
-	</form:form>
-	
-	<c:url var="url_voltar" value="/aluno/voltar" />
-	<form:form action="${url_voltar}" method="GET">
-		<input type="submit" value="Voltar" />
-	</form:form>
+	<div class="input-group">
+		<form:form action="${url_1}" method="POST">
+			<input type="submit" value="Novo" />
+		</form:form>
+		
+		<c:url var="url_voltar" value="/aluno/voltar" />
+		<form:form action="${url_voltar}" method="GET">
+			<input type="submit" value="Voltar" />
+		</form:form>
+	</div>
 	
 	<c:if test="${empty alunos}">
 		<c:out value="Não existem alunos cadastradas" />
 	</c:if>
-
+	<script src="resources/js/jquery-2.0.2.min.js" type="text/javascript"></script>
+   <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+   <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
+   <script src="resources/js/AdminLTE/demo.js" type="text/javascript"></script>
 
 </body>
 </html>
