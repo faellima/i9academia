@@ -32,7 +32,7 @@
             </form>
 			<font color="#FF0000"><c:out value="${novoAdmin}"></c:out></font>
 			<font color="#FF0000"><c:out value="${loginPrincipalError}"></c:out></font>
-     </div>
+     </div> 
 </body>
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>        
 <script src="resources/js/jquery-2.0.2.min.js" type="text/javascript"></script>

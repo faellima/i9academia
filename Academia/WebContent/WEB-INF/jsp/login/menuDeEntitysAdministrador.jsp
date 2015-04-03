@@ -17,7 +17,7 @@
        <header class="header">
             <a href="#" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                Academia
+               I9 Academia
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -40,7 +40,7 @@
                                 <li class="user-header bg-light-blue">
                                     <img src="resources/img/avatar5.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        Rafael Anderson - Web Developer
+										Administrador
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -61,7 +61,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href='/academia' class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -98,8 +98,13 @@
                     
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href='/Academia/aluno'>
+                            <a href='/academia/aluno'>
                                 <i class="fa fa-dashboard"></i> <span>Alunos</span>
+                            </a>
+                        </li>
+						<li class="active">
+                            <a href='/academia/instrutor'>
+                                <i class="fa fa-dashboard"></i> <span>Instrutores</span>
                             </a>
                         </li>
                     </ul>
@@ -115,7 +120,7 @@
                         Bem Vindo Administrador                        
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="/Academia/efetuaLogin"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href='/academia/efetuaLogin#'><i class="fa fa-dashboard"></i>Home</a></li>
                         <li class="active">Blank page</li>
                     </ol>
                 </section>

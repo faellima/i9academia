@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.unipe.academia.persistence.entity.Administrador;
 import br.unipe.academia.persistence.entity.Aluno;
 import br.unipe.academia.persistence.entity.AlunoModalidade;
 import br.unipe.academia.persistence.entity.Instrutor;
@@ -24,6 +25,7 @@ import br.unipe.academia.persistence.entity.Medicao;
 import br.unipe.academia.persistence.entity.MedidaAvaliacao;
 import br.unipe.academia.persistence.entity.Modalidade;
 import br.unipe.academia.persistence.entity.Usuario;
+import br.unipe.academia.services.AdministradorService;
 import br.unipe.academia.services.AlunoModalidadeService;
 import br.unipe.academia.services.AlunoService;
 import br.unipe.academia.services.ModalidadeService;
@@ -339,6 +341,7 @@ public class AlunoController {
 		modelMap.addAttribute("alunomodalidade", new AlunoModalidade());
 	}	
 	
+	//AO DAR O RETURN A TELA NÃO CARREGA AS IMAGENS
 	@RequestMapping(value="voltar",method=RequestMethod.GET)
 	public String voltarAluno(ModelMap modelMap,HttpSession session){
 		return "login/menuDeEntitysAdministrador";

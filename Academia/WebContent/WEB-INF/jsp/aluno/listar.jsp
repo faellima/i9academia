@@ -70,10 +70,11 @@
 					<td>${aluno.telFixo}</td>
 					<td>${aluno.telCelular}</td>
 					<td>${aluno.email}</td>
-					<td><c:url var="url_2" value="/aluno/${aluno.id}" /> <form:form
+					<td><c:url var="url_2" value="/aluno/${aluno.id}" /> 
+					<form:form
 							action="${url_2}" method="POST">
 							<input type="submit" value="Editar"></input>
-						</form:form></td>
+					</form:form></td>
 
 					<c:url var="url_3" value="/aluno" />
 
@@ -83,7 +84,7 @@
 
 					<td><form:form action="${url_2}" method="DELETE">
 							<input type="submit" value="Excluir" />
-						</form:form></td>
+					</form:form></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -94,16 +95,30 @@
 	</c:if>
 	<br />
 
-	<div class="input-group">
+	<table>
+			<tr>
+				<td><form:form action="${url_1}" method="POST">
+				<input type="submit" value="Novo" />
+				</form:form></td>
+				<td></td>
+				<td></td>
+				<td><c:url var="url_voltar" value="/aluno/voltar" />
+				<form:form action="${url_voltar}" method="GET">
+				<input type="submit" value="Voltar" />
+				</form:form></td>
+			</tr>
+	</table>
+	
+	<!-- <div class="input-group">
 		<form:form action="${url_1}" method="POST">
 			<input type="submit" value="Novo" />
 		</form:form>
-		
+
 		<c:url var="url_voltar" value="/aluno/voltar" />
 		<form:form action="${url_voltar}" method="GET">
 			<input type="submit" value="Voltar" />
 		</form:form>
-	</div>
+	</div> -->
 	
 	<c:if test="${empty alunos}">
 		<c:out value="Não existem alunos cadastradas" />
